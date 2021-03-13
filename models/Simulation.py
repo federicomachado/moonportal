@@ -1,8 +1,9 @@
-from algorithms.Dummy import Dummy
 from algorithms.Algorithm import Algorithm
 
+from pydoc import locate
+
 class Simulation:
-    def __init__(self, wallet, algorithm = "default", startingBalance = 100, historical = "USDT-TEST-H.txt"):
+    def __init__(self, wallet, algorithm = "Algorithm", startingBalance = 100, historical = "USDT-TEST-H.txt"):
         print("Loading Simulation Data...")
         files = open("historical/"+historical)
         data = []
@@ -13,11 +14,9 @@ class Simulation:
         self.startingBalance = 100
         self.orderBook = []
         self.lastPrice = self.historical.pop()
-        if algorithm == "default":
-            self.algorithm = Algorithm(self)
-        else:
-            # TO DO: Dynamic Load
-            self.algorithm = Dummy(self)
+        module_ = locate('models.algorithms.'+algorithm)
+        class_ = getattr(module_, algorithm)
+        self.algorithm = class_(self)
 
 
     def tick(self):
