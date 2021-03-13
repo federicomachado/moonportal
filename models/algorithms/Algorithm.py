@@ -2,12 +2,8 @@ class Algorithm(object):
     def __init__(self, simulation):
         self.simulation = simulation
 
-
     def getLastPrice(self):
         return self.simulation.lastPrice
-
-    def getWallet(self):
-        return self.simulation.wallet
 
     def getWalletBalance(self):
         pass

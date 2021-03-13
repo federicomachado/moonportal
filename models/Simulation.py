@@ -1,6 +1,5 @@
-from algorithms.Algorithm import Algorithm
 from algorithms.Dummy import Dummy
-
+from algorithms.Algorithm import Algorithm
 
 class Simulation:
     def __init__(self, wallet, algorithm = "default", startingBalance = 100, historical = "USDT-TEST-H.txt"):
@@ -17,7 +16,9 @@ class Simulation:
         if algorithm == "default":
             self.algorithm = Algorithm(self)
         else:
+            # TO DO: Dynamic Load
             self.algorithm = Dummy(self)
+
 
     def tick(self):
         if (len(self.historical)>0):
