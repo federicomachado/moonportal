@@ -1,3 +1,5 @@
+
+
 class Wallet:
     def __init__(self, name, currency = "BTC", balance = 0):
         self.name = name

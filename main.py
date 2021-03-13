@@ -1,5 +1,9 @@
 from models.Wallet import Wallet
+from models.Simulation import Simulation
 
-x = Wallet("Test Wallet", "DOGE", 0)
-x.addBalance(5000)
-print(x)
+
+wallet = Wallet("Main Wallet")
+sim = Simulation(wallet, "Dummy")
+while sim.isRunning():
+    current = sim.tick()
+    sim.algorithm.think()
