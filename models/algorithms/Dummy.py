@@ -5,4 +5,5 @@ class Dummy(Algorithm):
         super(Dummy, self).__init__(simulation)
 
     def think(self):
-        print("Inside Dummy")
+        if (self.hasEnoughBalance(2, 20)):
+            self.placeBuyOrder(2, 20)
