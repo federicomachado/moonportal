@@ -4,7 +4,7 @@ from Order import Order
 from pydoc import locate
 
 class Simulation:
-    def __init__(self, algorithm = "Algorithm", startingBalance = 100, historical = "USDT-TEST-H.txt"):
+    def __init__(self, algorithm = "Algorithm",  historical = "USDT-TEST-H.txt", startingBalance = 100):
         print("Loading Simulation Data...")
         files = open("historical/"+historical)
         data = []
@@ -78,7 +78,7 @@ class Simulation:
                 self.lockedCryptoBalance-= sellOrder.quantity
                 self.availableBalance+= sellOrder.getTotal()
                 self.recalculateTotalBalance()
-                print("SELL ORDER FULLFILLED SUCCESSFULLY, EARNED " + str(sellOrder.getTotal()) + " USD " + " Current price: " + str(self.lastPrices[-1]))
+                print("SELL ORDER #"+str(sellOrder.number) + " FULLFILLED SUCCESSFULLY, EARNED " + str(sellOrder.getTotal()) + " USD " + " Current price: " + str(self.lastPrices[-1]))
                 print("Total value: " + str(self.totalSimulationValue()))
                 sellOrder.close()
 

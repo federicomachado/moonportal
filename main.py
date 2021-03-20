@@ -2,7 +2,7 @@ from models.Wallet import Wallet
 from models.Simulation import Simulation
 
 
-sim = Simulation("Dummy")
+sim = Simulation("Dummy", "USDT-TEST-H.txt")
 print("")
 print ("START OF SIMULATION")
 print("TOTAL: " + str(sim.totalSimulationValue()))
