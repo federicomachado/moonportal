@@ -3,8 +3,14 @@ from models.Simulation import Simulation
 
 
 sim = Simulation("Dummy")
+print("")
+print ("START OF SIMULATION")
+print("TOTAL: " + str(sim.totalSimulationValue()))
+print("*******************************************")
 while sim.isRunning():
     current = sim.tick()
     sim.algorithm.think()
+    sim.processOrderBook()
+print("*******************************************")
 print("END OF SIMULATION")
 print("TOTAL: " + str(sim.totalSimulationValue()))

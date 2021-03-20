@@ -15,10 +15,11 @@ class Algorithm(object):
     def getWalletBalance(self):
         return self.simulation.wallet.balance
 
-    ## Balance for Base Currency
+
     def getTotalBalance(self):
         return self.simulation.totalBalance
 
+    ## Balance for Base Currency
     def getAvailableBalance(self):
         return self.simulation.availableBalance
 
@@ -28,7 +29,15 @@ class Algorithm(object):
     def hasEnoughBalance(self, price, quantity):
         return self.getAvailableBalance() >= price*quantity
 
+    ## Balance for Crypto Currency
+    def getAvailableCryptoBalance(self):
+        return self.simulation.availableCryptoBalance
 
+    def getLockedCryptoBalance(self):
+        return self.simulation.lockedCryptoBalance
+
+    def hasEnoughCryptoBalance(self, quantity):
+        return self.getAvailableCryptoBalance() >= quantity
 
     def getOrderBook(self):
         return self.simulation.orderBook

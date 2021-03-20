@@ -5,5 +5,8 @@ class Dummy(Algorithm):
         super(Dummy, self).__init__(simulation)
 
     def think(self):
-        if (self.hasEnoughBalance(2, 20)):
-            self.placeBuyOrder(2, 20)
+        lastPrice = self.simulation.lastPrice
+        if (self.hasEnoughBalance(2, lastPrice - lastPrice*0.10)):
+            self.placeBuyOrder(2, lastPrice - lastPrice*0.10)
+        if (self.hasEnoughCryptoBalance(2)):
+            self.placeSellOrder(2, lastPrice*1.1)
